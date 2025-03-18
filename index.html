@@ -3,21 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生日派对邀请函</title>
+    <title>焮釔的1周岁派对</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; background: url('background.jpg') no-repeat center/cover; }
-        .invite { margin-top: 50px; animation: fadeIn 2s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .btn { padding: 10px 20px; background: #ff4081; color: white; border-radius: 5px; text-decoration: none; font-size: 18px; }
+        @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'ZCOOL KuaiLe', cursive;
+        }
+        .container {
+            display: flex;
+            width: 200vw;
+            transition: transform 0.5s ease-in-out;
+        }
+        .page {
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+        .page1 { background-image: url('strawberry-bear.jpg'); }
+        .page2 { background: pink; }
+        .title {
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px #ff1493;
+        }
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: absolute;
+            animation: shake 2s infinite alternate;
+        }
+        @keyframes shake {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+        .content {
+            font-size: 1.5rem;
+            color: #ff1493;
+            margin-top: 50px;
+        }
+        .button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff69b4;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
-    <div class="invite">
-        <h1>🎉 生日派对邀请函 🎉</h1>
-        <img src="WhatsApp Image 2025-03-18 at 1.28.29 PM.jpeg" width="300">
-        <p>时间：2025年4月18日，晚上7点</p>
-        <p>地点：No6,Laluan Mewah Indah 3</p>
-        <a href="https://maps.app.goo.gl/bfyCY7BhZdPo91pZ7" class="btn">📍 立即查看地址</a>
+    <audio autoplay loop>
+        <source src="birthday-song.mp3" type="audio/mpeg">
+    </audio>
+    <div class="container" id="slider">
+        <div class="page page1">
+            <h1 class="title">欢迎来到焮釔的1周岁派对！</h1>
+            <img src="main-photo.jpg" class="photo" style="top: 200px; left: 50px;">
+            <img src="animation1.gif" class="photo" style="top: 350px; left: 180px;">
+            <img src="animation2.gif" class="photo" style="top: 250px; right: 50px;">
+            <button class="button" onclick="nextPage()">查看派对流程</button>
+        </div>
+        <div class="page page2">
+            <h1 class="title">派对流程</h1>
+            <p class="content">📅 日期：2025年4月18日</p>
+            <p class="content">📍 地点：6, Laluan Mewah Indah 3</p>
+            <p class="content"><a href="https://maps.app.goo.gl/f9NHgekBHDrZtaxa7" target="_blank">点击查看 Google 地图</a></p>
+            <p class="content">⏰ 6:30 抵达</p>
+            <p class="content">🍽️ 7:00 用餐</p>
+            <p class="content">🎂 8:00 切蛋糕</p>
+            <p class="content">🙏 9:00 感谢到场</p>
+            <button class="button" onclick="prevPage()">返回</button>
+        </div>
     </div>
+    <script>
+        function nextPage() {
+            document.getElementById('slider').style.transform = 'translateX(-100vw)';
+        }
+        function prevPage() {
+            document.getElementById('slider').style.transform = 'translateX(0)';
+        }
+    </script>
 </body>
 </html>
