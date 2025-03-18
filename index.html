@@ -7,92 +7,77 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
         body {
-            margin: 0;
-            overflow: hidden;
             font-family: 'ZCOOL KuaiLe', cursive;
+            text-align: center;
+            background: url('your-background-image.jpg') no-repeat center center/cover;
+            overflow-x: hidden;
+            margin: 0;
         }
         .container {
-            display: flex;
-            width: 200vw;
-            transition: transform 0.5s ease-in-out;
+            position: relative;
+            padding: 20px;
         }
-        .page {
-            width: 100vw;
-            height: 100vh;
-            text-align: center;
-            background-size: cover;
-            background-position: center;
-        }
-        .page1 { background-image: url('background.jpg.jpeg'); }
-        .page2 { background: pink; }
-        .title {
-            font-size: 2.5rem;
-            color: white;
-            margin-top: 20px;
-            text-shadow: 2px 2px 5px #ff1493;
-        }
-        .photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+        .main-character {
             position: absolute;
-            animation: shake 2s infinite alternate;
-        }
-        @keyframes shake {
-            0% { transform: rotate(-5deg); }
-            100% { transform: rotate(5deg); }
-        }
-        .content {
-            font-size: 1.5rem;
-            color: #ff1493;
-            margin-top: 50px;
-        }
-        .button {
-            position: absolute;
-            bottom: 20px;
+            top: 50px;
             left: 50%;
             transform: translateX(-50%);
-            background: #ff69b4;
-            color: white;
-            font-size: 1.2rem;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
+            width: 150px;
+            animation: swing 2s infinite alternate ease-in-out;
+        }
+        @keyframes swing {
+            0% { transform: translateX(-50%) rotate(-5deg); }
+            100% { transform: translateX(-50%) rotate(5deg); }
+        }
+        .animated-character {
+            position: absolute;
+            width: 100px;
+            animation: moveAround 5s infinite alternate ease-in-out;
+        }
+        .char1 { top: 300px; left: 10%; }
+        .char2 { top: 400px; right: 10%; animation-delay: 1s; }
+        @keyframes moveAround {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(20px); }
+        }
+        .content {
+            margin-top: 200px;
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        audio {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
         }
     </style>
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="Cute songs.mp3" type="audio/mpeg">
-    </audio>
-    <div class="container" id="slider">
-        <div class="page page1">
-            <h1 class="title">欢迎来到焮釔的1周岁派对！</h1>
-            <img src="WhatsApp Image 2025-03-18 at 8.15.14 PM.jpeg" class="photo" style="top: 200px; left: 50px;">
-            <img src="WhatsApp Image 2025-03-18 at 8.11.11 PM (1).jpeg" class="photo" style="top: 350px; left: 180px;">
-            <img src="WhatsApp Image 2025-03-18 at 8.11.11 PM.jpeg" class="photo" style="top: 250px; right: 50px;">
-            <button class="button" onclick="nextPage()">查看派对流程</button>
-        </div>
-        <div class="page page2">
-            <h1 class="title">派对流程</h1>
-            <p class="content">📅 日期：2025年4月18日</p>
-            <p class="content">📍 地点：6, Laluan Mewah Indah 3</p>
-            <p class="content"><a href="https://maps.app.goo.gl/f9NHgekBHDrZtaxa7" target="_blank">点击查看 Google 地图</a></p>
-            <p class="content">⏰ 6:30 抵达</p>
-            <p class="content">🍽️ 7:00 用餐</p>
-            <p class="content">🎂 8:00 切蛋糕</p>
-            <p class="content">🙏 9:00 感谢到场</p>
-            <button class="button" onclick="prevPage()">返回</button>
+    <div class="container">
+        <img src="your-main-character.jpg" class="main-character" alt="主角">
+        <img src="your-animated-character1.png" class="animated-character char1" alt="动画角色1">
+        <img src="your-animated-character2.png" class="animated-character char2" alt="动画角色2">
+        
+        <div class="content">
+            <h1>🎉 欢迎来到焮釔的1周岁派对 🎉</h1>
+            <p>日期：2025年4月18日</p>
+            <p>流程：</p>
+            <ul>
+                <li>6:30 PM - 欢迎抵达</li>
+                <li>7:00 PM - 美味晚餐</li>
+                <li>8:00 PM - 生日蛋糕时间 🎂</li>
+                <li>9:00 PM - 感谢您的到来！🥰</li>
+            </ul>
+            <p>让我们一起度过美好的夜晚！✨</p>
         </div>
     </div>
-    <script>
-        function nextPage() {
-            document.getElementById('slider').style.transform = 'translateX(-100vw)';
-        }
-        function prevPage() {
-            document.getElementById('slider').style.transform = 'translateX(0)';
-        }
-    </script>
+    <audio controls autoplay loop>
+        <source src="your-music.mp3" type="audio/mp3">
+    </audio>
 </body>
 </html>
+
